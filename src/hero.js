@@ -1,17 +1,35 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
 
 const Hero = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const playVideo = async () => {
+      try {
+        if (videoRef.current) {
+          await videoRef.current.play();
+        }
+      } catch (err) {
+        console.log("Video autoplay failed");
+      }
+    };
+    
+    playVideo();
+  }, []);
+
   return (
     <div className="relative h-screen w-screen overflow-hidden">
       {/* Background Video */}
       <video
+        ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         autoPlay
-  playsInline
-  muted
-  loop
+        playsInline
+        muted
+        loop
+        preload="auto"
         src="./vis3.mp4" // Replace with your video source
       />
 
