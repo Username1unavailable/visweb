@@ -11,7 +11,7 @@ const Hero = () => {
         autoPlay
         muted
         loop
-        src="./vis2.webm" // Replace with your video source
+        src="./vis3.mp4" // Replace with your video source
       />
 
       {/* Main Content */}
