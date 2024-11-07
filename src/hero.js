@@ -9,6 +9,7 @@ const Hero = () => {
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         autoPlay
+        playsInline
         muted
         loop
         src="./vis3.mp4" // Replace with your video source
