@@ -29,8 +29,12 @@ const Hero = () => {
         playsInline
         muted
         loop
+        disablePictureInPicture
         preload="auto"
-        src="./vis3.mp4" // Replace with your video source
+        controls={false}
+        style={{ pointerEvents: 'none' }}
+        src="./vis3.mp4"
+         // Replace with your video source
       />
 
       {/* Main Content */}
