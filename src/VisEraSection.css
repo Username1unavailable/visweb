@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
+  cursor: none;
+
+}
+
+.cursor-none {
+  cursor: none;
+}
+
+.font-roboto-extraLight {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+.hover-effect {
+  background: linear-gradient(180deg, #FFB199 0%, #FF0844 70%, #FF0844 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hover-effect:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.hover-effect2 {
+  transition: color 0.8s ease, transform 0.3s ease;
+}
+
+.hover-effect2:hover {
+  background: linear-gradient(180deg, #FFB199 20%, #FF0844 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.download-beta-btn {
+  position: relative;
+  padding: 12px 24px;
+  background: rgba(245, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.download-beta-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(circle, #FF0844, #FFB199);
+  border-radius: 50px;
+  transition: background-position 0.01s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.download-beta-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(255, 8, 68, 0.9);
+}
+
+.download-beta-btn:active {
+  transform: scale(0.98);
+}
+
+
+.gradient-overlay {
+  pointer-events: none;
+  transition: background 0.15s ease; /* Smooth transition for gradient change */
+}
+
+.custom-gradient-text {
+  background: linear-gradient(180deg, #FFB199 0%, #FF0844 70%, #FF0844 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.custom-backdrop-blur {
+  backdrop-filter: blur(20px); /* Adjust the pixel value to change the blur radius */
+}
+
+
+.backdrop-blur-custom {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.mix-blend-diff {
+  mix-blend-mode: difference;
+}
+
+
+/* White ball animation */
+.bg-white-ball {
+  background: rgba(248, 113, 113, 0.9);
+  clip-path: circle(0% at 50% 50%);
+  animation: expandBall 3s ease forwards;
+}
+
+@keyframes expandBall {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+  }
+  25% {
+    clip-path: circle(0% at 50% 50%);
+  }
+ 
+  50% {
+    clip-path: circle(75% at 50% 50%);
+  }
+ 
+  100% {
+    clip-path: circle(150% at 50% 50%);
+  }
+}
+
+/* Navbar items fade-in animation */
+.animate-navItem {
+  animation: fadeInNavItems 1.5s ease forwards;
+}
+
+@keyframes fadeInNavItems {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

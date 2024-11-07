@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=San+Francisco&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Bruno+Ace+SC&family=Baloo+2&display=swap');
+
+
+
+body {
+  font-family: 'San Francisco', sans-serif;
+  margin: 0; /* Prevent default margin */
+}
+
+.font-roboto-extraLight {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+h2 {
+  white-space: nowrap; /* Prevents the text from wrapping */
+  overflow: hidden; /* Ensures that overflow content is hidden */
+  text-overflow: ellipsis; /* Optional: adds ellipsis (...) if the text overflows */
+}
+.custom-gradient-text {
+  background: linear-gradient(180deg, #FFB199 0%, #FF0844 70%, #FF0844 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cross-out {
+  position: relative;
+  display: inline-block;
+  color: white; /* Make "Cheap" white */
+}
+
+.line {
+  position: absolute;
+  height: 7px; /* Height of the line */
+  background: linear-gradient(270deg, #FFB199 0%, #FF0844 70%, #FF0844 100%);
+  top: 55%; /* Position it vertically in the center of the text */
+  transform: translateY(-50%); /* Center the line */
+  left: 0; /* Start from the left */
+  pointer-events: none; /* Prevent line from interfering with text clicks */
+  z-index: 1; /* Make sure the line appears above the text */
+}
+
+.animate-gradient {
+  animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
