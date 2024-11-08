@@ -15,8 +15,23 @@ const Hero = () => {
         console.log("Video autoplay failed");
       }
     };
-    
+
     playVideo();
+
+    // iOS retry workaround: reattempt play after user interaction
+    const handleInteraction = () => {
+      playVideo();
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
+
+    window.addEventListener('click', handleInteraction);
+    window.addEventListener('touchstart', handleInteraction);
+
+    return () => {
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
   }, []);
 
   return (
@@ -29,14 +44,12 @@ const Hero = () => {
         autoPlay 
         muted 
         loop
-        playsInline 
-        disablePictureInPicture 
+        playsInline
+        ref={videoRef}
+        disablePictureInPicture
         controls={false}
-        style={{ pointerEvents: 'none' }}
-         // Replace with your video source
       >
-
-      <source src="./vis3.mp4" type="video/mp4" />
+        <source src="./vis3.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
