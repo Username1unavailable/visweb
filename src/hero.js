@@ -38,6 +38,8 @@ const Hero = () => {
   disablePictureInPicture
   controls={false}
 >
+
+          <source src="./vis4short.mp4" type="video/mp4" media="(max-width: 768px)" />
           <source src="./vis4.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
