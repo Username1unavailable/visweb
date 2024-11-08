@@ -34,11 +34,11 @@ const SinglePage = () => {
       </h1>
 
       <video 
-        width="100" 
-        height="100" 
+     
         autoPlay 
         loop 
         muted 
+        playsInline
         className="pig"
       >
         <source src="./pig.mp4" type="video/webm" />
