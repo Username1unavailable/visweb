@@ -23,19 +23,22 @@ const Hero = () => {
     <div className="relative h-screen w-screen overflow-hidden">
       {/* Background Video */}
       <video
-        ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        autoPlay
-        playsInline
-        muted
+        id="loadingVideo" 
+        width="100%" 
+        autoPlay 
+        muted 
         loop
-        disablePictureInPicture
-        preload="auto"
+        playsInline 
+        disablePictureInPicture 
         controls={false}
         style={{ pointerEvents: 'none' }}
-        src="./vis3.mp4"
          // Replace with your video source
-      />
+      >
+
+      <source src="./vis3.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
       {/* Main Content */}
       <div className="relative flex flex-col items-center justify-end h-full pb-16 z-10">
