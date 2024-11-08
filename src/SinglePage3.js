@@ -44,17 +44,20 @@ const SinglePage3 = () => {
 <span className="custom-gradient-text">l</span>
       </motion.h1>
 
-      <video 
-        width="250" 
-        height="250" 
-        autoPlay 
-        loop 
-        muted 
-        className="draw "
-      >
-        <source src="./draw.mp4 " type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+        {/* Video for supported browsers */}
+        <video 
+  width="250" 
+  height="250" 
+  autoPlay 
+  loop 
+  muted 
+  playsInline
+  poster="./draw.png"
+  className="draw"
+>
+  <source src="./draw.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
       
       <motion.p
   initial={{ opacity: 0, scale: 0.8 }}

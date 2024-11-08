@@ -23,7 +23,8 @@ const SinglePage2 = () => {
         height="100" 
         autoPlay 
         loop 
-        muted 
+        muted
+        playsInline 
         className="hand"
       >
         <source src="./vision.mp4 " type="video/mp4" />

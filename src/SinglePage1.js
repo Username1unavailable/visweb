@@ -22,6 +22,7 @@ const SinglePage = () => {
         autoPlay 
         loop 
         muted 
+        playsInline
         className="hand"
       >
         <source src="./hand.mp4" type="video/mp4" />
