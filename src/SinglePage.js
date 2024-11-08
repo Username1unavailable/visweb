@@ -41,7 +41,7 @@ const SinglePage = () => {
         playsInline
         className="pig"
       >
-        <source src="./pig.mp4" type="video/webm" />
+        <source src="./pig.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
