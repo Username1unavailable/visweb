@@ -50,7 +50,7 @@ const SinglePage3 = () => {
         autoPlay 
         loop 
         muted 
-        className="pt-4 "
+        className="draw "
       >
         <source src="./draw.webm " type="video/webm" />
         Your browser does not support the video tag.

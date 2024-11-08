@@ -7,26 +7,7 @@ import Particles from './Particles';
 const VisEraSection = () => {
 
 
-  const videoRef = useRef(null);
-  const [videoFailed, setVideoFailed] = useState(false);
-
-  // Helper function to attempt autoplay, switching to image if it fails
-  const attemptVideoAutoplay = async () => {
-    if (videoRef.current) {
-      try {
-        await videoRef.current.play();
-        console.log("Autoplay successful");
-      } catch (error) {
-        console.log("Autoplay failed, switching to fallback image");
-        setVideoFailed(true); // Switch to fallback image
-      }
-    }
-  };
-
-  useEffect(() => {
-    attemptVideoAutoplay();
-  }, []);
-
+  
 
 
 
@@ -75,21 +56,17 @@ const VisEraSection = () => {
 
 
     
-        {!videoFailed ? (
       <video
         className="absolute top-0 left-0 w-full h-full object-cover -z-40"
         autoPlay
         muted
         loop
-        src="./vibe3.mp4"
-      />
-      ) : (
-        <img
-          src="./vibe.png" // Replace with your fallback image path
-          alt="Fallback Background"
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        />
-      )} 
+      >
+          <source src="./vibe3short.mp4" type="video/mp4" media="(max-width: 768px)" />
+          <source src="./vibe3.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
       
       {/* Dynamic Gradient Overlay */}
       <div className="gradient-overlay absolute top-0 left-0 w-full h-full -z-30" style={gradientStyle}></div>

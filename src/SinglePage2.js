@@ -24,7 +24,7 @@ const SinglePage2 = () => {
         autoPlay 
         loop 
         muted 
-        className="pt-10"
+        className="hand"
       >
         <source src="./vision.webm " type="video/webm" />
         Your browser does not support the video tag.

@@ -39,9 +39,9 @@ const SinglePage = () => {
         autoPlay 
         loop 
         muted 
-        className="pt-0"
+        className="pig"
       >
-        <source src="./pig.webm" type="video/webm" />
+        <source src="./pig.mp4" type="video/webm" />
         Your browser does not support the video tag.
       </video>
       
