@@ -6,29 +6,40 @@ const Hero = () => {
   const videoRef = useRef(null);
 
   useEffect(() => {
+    // Function to handle video play with retries
     const playVideo = async () => {
-      try {
-        if (videoRef.current) {
+      if (videoRef.current) {
+        try {
           await videoRef.current.play();
+          console.log("Autoplay successful");
+        } catch (error) {
+          console.log("Autoplay failed, adding interaction event listeners");
+          // Retry on user interaction if autoplay fails
+          window.addEventListener('click', handleInteraction);
+          window.addEventListener('touchstart', handleInteraction);
         }
-      } catch (err) {
-        console.log("Video autoplay failed");
       }
     };
 
-    playVideo();
-
-    // iOS retry workaround: reattempt play after user interaction
-    const handleInteraction = () => {
-      playVideo();
-      window.removeEventListener('click', handleInteraction);
-      window.removeEventListener('touchstart', handleInteraction);
+    // Handle interaction to trigger play if autoplay failed
+    const handleInteraction = async () => {
+      if (videoRef.current) {
+        try {
+          await videoRef.current.play();
+          // Remove event listeners after a successful play
+          window.removeEventListener('click', handleInteraction);
+          window.removeEventListener('touchstart', handleInteraction);
+          console.log("Video played after user interaction");
+        } catch (error) {
+          console.log("Video play still restricted");
+        }
+      }
     };
 
-    window.addEventListener('click', handleInteraction);
-    window.addEventListener('touchstart', handleInteraction);
+    playVideo(); // Initial attempt to autoplay
 
     return () => {
+      // Clean up event listeners on unmount
       window.removeEventListener('click', handleInteraction);
       window.removeEventListener('touchstart', handleInteraction);
     };
