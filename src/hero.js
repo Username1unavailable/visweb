@@ -38,7 +38,7 @@ const Hero = () => {
   disablePictureInPicture
   controls={false}
 >
-          <source src="./vis3.mp4" type="video/mp4" />
+          <source src="./vis2.webm" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
      
