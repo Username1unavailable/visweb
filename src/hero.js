@@ -26,29 +26,22 @@ const Hero = () => {
   return (
     <div className="relative h-screen w-screen overflow-hidden">
       {/* Background Video or Fallback Image */}
-      {!videoFailed ? (
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-          id="loadingVideo"
-          width="100%"
-          autoPlay
-          muted
-          loop
-          playsInline
-          ref={videoRef}
-          disablePictureInPicture
-          controls={false}
-        >
+      <video
+  className="hero-video"
+  id="loadingVideo"
+  width="100%"
+  autoPlay
+  muted
+  loop
+  playsInline
+  ref={videoRef}
+  disablePictureInPicture
+  controls={false}
+>
           <source src="./vis3.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      ) : (
-        <img
-          src="./altvis3.png" // Replace with your fallback image path
-          alt="Fallback Background"
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        />
-      )}
+     
 
       {/* Main Content */}
       <div className="relative flex flex-col items-center justify-end h-full pb-16 z-10">

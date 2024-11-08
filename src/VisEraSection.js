@@ -1,10 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import './VisEraSection.css';
 import { motion } from 'framer-motion';
 import Particles from './Particles';
 
 const VisEraSection = () => {
+
+
+  const videoRef = useRef(null);
+  const [videoFailed, setVideoFailed] = useState(false);
+
+  // Helper function to attempt autoplay, switching to image if it fails
+  const attemptVideoAutoplay = async () => {
+    if (videoRef.current) {
+      try {
+        await videoRef.current.play();
+        console.log("Autoplay successful");
+      } catch (error) {
+        console.log("Autoplay failed, switching to fallback image");
+        setVideoFailed(true); // Switch to fallback image
+      }
+    }
+  };
+
+  useEffect(() => {
+    attemptVideoAutoplay();
+  }, []);
+
+
+
+
   const [gradientStyle, setGradientStyle] = useState({
     background: 'radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.6), rgba(255, 0, 0, 0.3))'
   });
@@ -50,7 +75,7 @@ const VisEraSection = () => {
 
 
     
-
+        {!videoFailed ? (
       <video
         className="absolute top-0 left-0 w-full h-full object-cover -z-40"
         autoPlay
@@ -58,7 +83,13 @@ const VisEraSection = () => {
         loop
         src="./vibe3.mp4"
       />
-      
+      ) : (
+        <img
+          src="./vibe.png" // Replace with your fallback image path
+          alt="Fallback Background"
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        />
+      )} 
       
       {/* Dynamic Gradient Overlay */}
       <div className="gradient-overlay absolute top-0 left-0 w-full h-full -z-30" style={gradientStyle}></div>
