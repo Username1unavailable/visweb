@@ -26,7 +26,7 @@ const SinglePage2 = () => {
         muted 
         className="hand"
       >
-        <source src="./vision.webm " type="video/webm" />
+        <source src="./vision.mp4 " type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>

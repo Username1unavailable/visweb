@@ -52,7 +52,7 @@ const SinglePage3 = () => {
         muted 
         className="draw "
       >
-        <source src="./draw.webm " type="video/webm" />
+        <source src="./draw.mp4 " type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
